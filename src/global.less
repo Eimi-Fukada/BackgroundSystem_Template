@@ -1,0 +1,87 @@
+@import '~antd/es/style/variable.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+// 可以做站内搜索特效
+.ant-pro-basicLayout {
+  // transform: perspective(1000px) translate3d(0, 50vh, 0) rotate3d(1, 0, 0, 30deg);
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+.ant-layout-header {
+  background-color: #fff;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+.ant-pro-global-header-layout-mix {
+  background: #590de5;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+.ant-pro-basicLayout-content {
+  margin: 0;
+  background-color: #fafafa;
+}
+.ant-menu {
+  padding-top: 10px;
+}
+.ant-pro-sider .ant-menu {
+  background-color: #ebebeb;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: rgba(0, 0, 0, 0.08);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Compatible with IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .ant-design-pro > .ant-layout {
+    min-height: 100vh;
+  }
+}

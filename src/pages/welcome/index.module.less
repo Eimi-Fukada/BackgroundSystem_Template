@@ -1,0 +1,55 @@
+.page {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  overflow: hidden;
+  background-color: #7484f4;
+  &:before,
+  &:after {
+    position: absolute;
+    left: 50%;
+    min-width: 300vw;
+    min-height: 320vw;
+    background-color: #fff;
+    animation-name: rotate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    content: '';
+  }
+
+  &:before {
+    bottom: 15vh;
+    border-radius: 45%;
+    animation-duration: 10s;
+  }
+
+  &:after {
+    bottom: 12vh;
+    border-radius: 47%;
+    opacity: 0.5;
+    animation-duration: 10s;
+  }
+}
+.text {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  color: #590de5;
+  font-size: 8vw;
+  line-height: 80vh;
+  text-align: center;
+  text-shadow: 3px 3px 2px #999;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate(-50%, -2%) rotateZ(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) rotateZ(360deg);
+  }
+}
