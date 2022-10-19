@@ -4,7 +4,7 @@ export default [
   // { name: '登录', path: '/login', component: './login', layout: false, hideInMenu: true },
   // 这里是所有权限都有的
   {
-    name: 'NFKings',
+    name: 'name',
     path: '/welcome',
     icon: 'SmileOutlined',
     component: './welcome',

@@ -8,10 +8,10 @@ interface FileProps extends File {
   url: string;
 }
 
-const accessid = 'LTAI5t9ndsvDU6kEZLYBL4YW';
-const accesskey = 'GXw4FPI7VAhYAm3CExsAguBZSGOFVu';
-const host = 'https://twmw.oss-ap-southeast-1.aliyuncs.com';
-const httpsHost = 'https://twmw.oss-ap-southeast-1.aliyuncs.com';
+const accessid = 'your accessid';
+const accesskey = 'your accesskey';
+const host = 'your host';
+const httpsHost = 'your https host';
 
 const policyText = {
   expiration: '2030-01-01T12:00:00.000Z',
