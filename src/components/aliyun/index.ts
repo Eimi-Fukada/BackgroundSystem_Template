@@ -46,13 +46,13 @@ async function uploadAliyun(fileList: FileProps[]) {
       form.append('signature', signature);
       form.append('OSSAccessKeyId', accessid);
       form.append('policy', policy);
-      form.append('key', 'aliyun-oss/' + key);
+      form.append('key', '文件夹名/' + key);
       form.append('success_action_status', '200');
       form.append('file', file);
 
       return fetch(host, { method: 'post', body: form, mode: 'cors' }).then(({ status }) => {
         if (status === 200) {
-          return `${httpsHost}/aliyun-oss/${key}`;
+          return `${httpsHost}/文件夹名/${key}`;
         }
         throw new Error('上传失败');
       });

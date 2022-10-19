@@ -50,7 +50,7 @@ export default {
         email: 'antdesign@alipay.com',
         signature: '海纳百川，有容乃大',
         title: '交互专家',
-        group: 'NFKings-front-end',
+        group: 'Grace-front-end',
         auth: ['/news/postMessage'],
         role: 'admin',
         tags: [

@@ -9,7 +9,7 @@ const Component: FC<WelcomeProps> = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.text}>NFKings Welcome</div>
+      <div className={styles.text}>Welcome</div>
     </div>
   );
 };

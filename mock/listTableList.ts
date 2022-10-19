@@ -12,10 +12,7 @@ const genList = (current: number, pageSize: number) => {
       key: index,
       disabled: i % 6 === 0,
       href: 'https://ant.design',
-      avatar: [
-        'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-        'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-      ][i % 2],
+      avatar: [''][i % 2],
       name: `TradeCode ${index}`,
       owner: 'grace',
       desc: '这是grace的权限',
@@ -125,10 +122,7 @@ function postRule(req: Request, res: Response, u: string, b: Request) {
         const newRule: API.RuleListItem = {
           key: tableListDataSource.length,
           href: 'https://ant.design',
-          avatar: [
-            'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-            'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-          ][i % 2],
+          avatar: [''][i % 2],
           name,
           owner: 'grace',
           desc,
