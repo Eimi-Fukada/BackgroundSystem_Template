@@ -1,7 +1,9 @@
-# 后台模板框架
+# NFKings 后台模板框架
+
 此项目框架是基于[Ant Design Pro](https://pro.ant.design)
 
 ## 项目目录结构
+
 ```js
 ├── config                   # 全局配置，包含路由，构建等配置
 ├── docs                     # 文档
@@ -28,11 +30,13 @@
 ```
 
 ## 内置函数库
+
 1. useSuperLock - 超级钩子锁，当接口有返回值时才会触发下一个行为
-2. useCallBackState - 返回一个带缓存的state
+2. useCallBackState - 返回一个带缓存的 state
 3. useRouteQuery - 获取路由查询参数
 
 ## 内置帮助方法
-1. 忽略对象中的特定key
-2. 将文件转换为base64格式
+
+1. 忽略对象中的特定 key
+2. 将文件转换为 base64 格式
 3. 校验函数

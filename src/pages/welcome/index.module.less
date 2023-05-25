@@ -5,8 +5,9 @@
   min-height: 90vh;
   overflow: hidden;
   background-color: #7484f4;
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
     position: absolute;
     left: 50%;
     min-width: 300vw;
@@ -18,19 +19,20 @@
     content: '';
   }
 
-  &:before {
+  &::before {
     bottom: 15vh;
     border-radius: 45%;
     animation-duration: 10s;
   }
 
-  &:after {
+  &::after {
     bottom: 12vh;
     border-radius: 47%;
     opacity: 0.5;
     animation-duration: 10s;
   }
 }
+
 .text {
   position: relative;
   z-index: 10;
@@ -46,9 +48,11 @@
   0% {
     transform: translate(-50%, 0) rotateZ(0deg);
   }
+
   50% {
     transform: translate(-50%, -2%) rotateZ(180deg);
   }
+
   100% {
     transform: translate(-50%, 0%) rotateZ(360deg);
   }

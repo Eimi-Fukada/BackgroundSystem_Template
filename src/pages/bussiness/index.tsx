@@ -1,14 +1,14 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import { BussinessProps } from './const';
-import { ViewModel } from './viewModel';
-import { Area, Rose } from '@ant-design/plots';
-import BreadCrumb from '@/components/BreadCrumb';
-import { AreaMap, HexbinMap } from '@ant-design/maps';
+import type { FC } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { BussinessProps } from './const'
+import { useViewModel } from './viewModel'
+import { Area, Rose } from '@ant-design/plots'
+import BreadCrumb from '@/components/BreadCrumb'
+import { AreaMap, HexbinMap } from '@ant-design/maps'
 
 const Component: FC<BussinessProps> = () => {
-  const { data, Hexbin = [] } = ViewModel();
+  const { data, Hexbin = [] } = useViewModel()
 
   const config = {
     data,
@@ -21,9 +21,9 @@ const Component: FC<BussinessProps> = () => {
     areaStyle: () => {
       return {
         fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff',
-      };
+      }
     },
-  };
+  }
 
   const HexbinMapconfig = {
     map: {
@@ -50,7 +50,7 @@ const Component: FC<BussinessProps> = () => {
     size: {
       field: 'sum',
       value: ({ sum }: { sum: number }) => {
-        return sum * 200;
+        return sum * 200
       },
     },
     color: {
@@ -75,7 +75,7 @@ const Component: FC<BussinessProps> = () => {
       angle: 0,
       opacity: 1.0,
     },
-  };
+  } as any
 
   const roseData = [
     {
@@ -102,7 +102,7 @@ const Component: FC<BussinessProps> = () => {
       type: '其他',
       value: 5,
     },
-  ];
+  ]
 
   const roseconfig = {
     data: roseData,
@@ -113,7 +113,7 @@ const Component: FC<BussinessProps> = () => {
     legend: {
       position: 'bottom',
     },
-  };
+  } as any
 
   return (
     <>
@@ -132,8 +132,8 @@ const Component: FC<BussinessProps> = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-const Bussiness = memo(Component);
-export default Bussiness;
+const Bussiness = memo(Component)
+export default Bussiness

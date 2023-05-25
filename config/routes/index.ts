@@ -1,10 +1,10 @@
-import template from './template';
+import template from './template'
 
 export default [
   // { name: '登录', path: '/login', component: './login', layout: false, hideInMenu: true },
   // 这里是所有权限都有的
   {
-    name: 'name',
+    name: 'NFKings',
     path: '/welcome',
     icon: 'SmileOutlined',
     component: './welcome',
@@ -99,4 +99,4 @@ export default [
   },
   { path: '/', redirect: '/welcome' },
   { component: './404' },
-];
+]

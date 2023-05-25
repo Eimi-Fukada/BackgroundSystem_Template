@@ -1,15 +1,22 @@
-import type { FC } from 'react';
-import React, { memo, useState } from 'react';
-import styles from './index.module.less';
-import { EasyModalProps } from './const';
-import { Modal } from 'antd';
+import type { FC } from 'react'
+import React, { memo, useState } from 'react'
+import styles from './index.module.less'
+import type { EasyModalProps } from './const'
+import { Modal } from 'antd'
 
 const Component: FC<EasyModalProps> = (props) => {
-  const { visible, title, cancelText = '取消', onOk, onCancel, confirmLoading = false } = props;
+  const {
+    visible,
+    title,
+    cancelText = '取消',
+    onOk,
+    onCancel,
+    confirmLoading = false,
+  } = props
 
   return (
     <Modal
-      visible={visible}
+      open={visible}
       onCancel={() => onCancel && onCancel()}
       title={title}
       cancelText={cancelText}
@@ -21,8 +28,8 @@ const Component: FC<EasyModalProps> = (props) => {
     >
       {props.children}
     </Modal>
-  );
-};
+  )
+}
 
-const EasyModal = memo(Component);
-export default EasyModal;
+const EasyModal = memo(Component)
+export default EasyModal

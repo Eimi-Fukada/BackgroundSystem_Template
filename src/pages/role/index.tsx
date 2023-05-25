@@ -1,21 +1,28 @@
-import type { FC } from 'react';
-import { useRef } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import type { RoleProps, RoleItem } from './const';
-import { ViewModel } from './viewModel';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
-import { Button, Popconfirm, Form, Input } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import EasyModal from '@/components/easyModal';
-import { history } from 'umi';
-import BreadCrumb from '@/components/BreadCrumb';
+import type { FC } from 'react'
+import { useRef } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { RoleProps, RoleItem } from './const'
+import { useViewModel } from './viewModel'
+import type { ActionType, ProColumns } from '@ant-design/pro-components'
+import { ProTable } from '@ant-design/pro-components'
+import { Button, Popconfirm, Form, Input } from 'antd'
+import { PlusOutlined } from '@ant-design/icons'
+import EasyModal from '@/components/EasyModal'
+import { history } from 'umi'
+import BreadCrumb from '@/components/BreadCrumb'
 
 const Component: FC<RoleProps> = () => {
-  const { getList, handleConfirm, visible, setVisible, onValuesChange, handleOk, form } =
-    ViewModel();
-  const roleRef = useRef<ActionType>();
+  const {
+    getList,
+    handleConfirm,
+    visible,
+    setVisible,
+    onValuesChange,
+    handleOk,
+    form,
+  } = useViewModel()
+  const roleRef = useRef<ActionType>()
 
   const columns: ProColumns<RoleItem>[] = [
     {
@@ -44,12 +51,16 @@ const Component: FC<RoleProps> = () => {
         <a
           key="editable"
           onClick={() => {
-            setVisible(true);
+            setVisible(true)
           }}
         >
           编辑
         </a>,
-        <Popconfirm title="确定删除这条记录吗?" onConfirm={() => handleConfirm(record)} key="del">
+        <Popconfirm
+          title="确定删除这条记录吗?"
+          onConfirm={() => handleConfirm(record)}
+          key="del"
+        >
           <a target="_blank" key="del">
             删除
           </a>
@@ -63,7 +74,7 @@ const Component: FC<RoleProps> = () => {
         </a>,
       ],
     },
-  ];
+  ]
 
   return (
     <>
@@ -115,8 +126,8 @@ const Component: FC<RoleProps> = () => {
         </EasyModal>
       </div>
     </>
-  );
-};
+  )
+}
 
-const Role = memo(Component);
-export default Role;
+const Role = memo(Component)
+export default Role

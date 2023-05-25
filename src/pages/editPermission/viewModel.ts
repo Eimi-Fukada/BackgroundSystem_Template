@@ -1,17 +1,17 @@
-import { useSuperLock } from '@/hooks/useSuperLock';
-import { useState } from 'react';
-import { history } from 'umi';
+import { useSuperLock } from '@/hooks/useSuperLock'
+import { useState } from 'react'
+import { history } from 'umi'
 
-export function ViewModel() {
+export function useViewModel() {
   /** write your js */
-  const [state, setState] = useState<any>([]);
+  const [state, setState] = useState<any>([])
 
-  const [submit, loading] = useSuperLock(async () => {});
+  const [submit, loading] = useSuperLock(async () => {})
 
   return {
     state,
     setState,
     submit,
     loading,
-  };
+  }
 }

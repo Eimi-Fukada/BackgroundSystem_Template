@@ -1,9 +1,9 @@
 .page {
   padding: 20px;
 }
+
 .content {
   position: relative;
-  display: flex;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,10 +18,10 @@
 
   &::before {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: -20px;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     color: #fff;
     background: linear-gradient(to right bottom, #7484f4, #7b5cb8);
     transform: rotateZ(-90deg) translate(-100%, -100%);
@@ -35,6 +35,7 @@
     transform: rotateZ(0deg) translate(0%, -0%);
   }
 }
+
 .name {
   position: relative;
   z-index: 9;
@@ -42,9 +43,10 @@
   font-weight: 500;
   font-size: 20px;
 }
+
 .btnGroup {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 100%;
   margin-top: 24px;
 }

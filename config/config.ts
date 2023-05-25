@@ -1,14 +1,16 @@
 // https://umijs.org/config/
-import { defineConfig } from 'umi';
-import { join } from 'path';
+import { defineConfig } from 'umi'
+import { join } from 'path'
+import defaultSettings from './defaultSettings'
+import proxy from './proxy'
+import routes from './routes'
 
-import defaultSettings from './defaultSettings';
-import proxy from './proxy';
-import routes from './routes';
-
-const { REACT_APP_ENV } = process.env;
+const { REACT_APP_ENV } = process.env
 
 export default defineConfig({
+  define: {
+    REACT_APP_ENV: REACT_APP_ENV || false,
+  },
   hash: true,
   antd: {},
   dva: {
@@ -65,7 +67,8 @@ export default defineConfig({
     },
     {
       requestLibPath: "import { request } from 'umi'",
-      schemaPath: 'https://gw.alipayobjects.com/os/antfincdn/CA1dOm%2631B/openapi.json',
+      schemaPath:
+        'https://gw.alipayobjects.com/os/antfincdn/CA1dOm%2631B/openapi.json',
       projectName: 'swagger',
     },
   ],
@@ -85,4 +88,4 @@ export default defineConfig({
     'react-dom': 'ReactDOM',
     '@ant-design/charts': 'charts',
   },
-});
+})

@@ -1,20 +1,18 @@
-import type { FC } from 'react';
-import { useRef } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import type { AccountProps } from './const';
-import { ViewModel } from './viewModel';
-import BreadCrumb from '@/components/BreadCrumb';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
-import { Button, Popconfirm, Form, Input, Select } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import EasyModal from '@/components/easyModal';
-import type { RoleItem } from '../role/const';
+import type { FC } from 'react'
+import { useRef } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { AccountProps } from './const'
+import { useViewModel } from './viewModel'
+import BreadCrumb from '@/components/BreadCrumb'
+import type { ActionType, ProColumns } from '@ant-design/pro-components'
+import { ProTable } from '@ant-design/pro-components'
+import { Button, Popconfirm, Form, Input, Select } from 'antd'
+import { PlusOutlined } from '@ant-design/icons'
+import EasyModal from '@/components/EasyModal'
+import type { RoleItem } from '../role/const'
 
 const Component: FC<AccountProps> = () => {
-  const {} = ViewModel();
-
   const {
     getList,
     handleConfirm,
@@ -24,9 +22,9 @@ const Component: FC<AccountProps> = () => {
     handleOk,
     form,
     handleChange,
-  } = ViewModel();
-  const roleRef = useRef<ActionType>();
-  const roleArray = ['admin', 'user'];
+  } = useViewModel()
+  const roleRef = useRef<ActionType>()
+  const roleArray = ['admin', 'user']
 
   const columns: ProColumns<RoleItem>[] = [
     {
@@ -53,7 +51,7 @@ const Component: FC<AccountProps> = () => {
       ellipsis: true,
       search: false,
       renderText(text) {
-        return text.join(',');
+        return text.join(',')
       },
     },
     {
@@ -72,19 +70,23 @@ const Component: FC<AccountProps> = () => {
         <a
           key="editable"
           onClick={() => {
-            setVisible(true);
+            setVisible(true)
           }}
         >
           编辑
         </a>,
-        <Popconfirm title="确定删除这条记录吗?" onConfirm={() => handleConfirm(record)} key="del">
+        <Popconfirm
+          title="确定删除这条记录吗?"
+          onConfirm={() => handleConfirm(record)}
+          key="del"
+        >
           <a target="_blank" key="del">
             删除
           </a>
         </Popconfirm>,
       ],
     },
-  ];
+  ]
 
   return (
     <>
@@ -145,7 +147,9 @@ const Component: FC<AccountProps> = () => {
                 onChange={(val) => handleChange(val)}
               >
                 {roleArray.map((item) => {
-                  return <Select.Option key={item.toString()}>{item}</Select.Option>;
+                  return (
+                    <Select.Option key={item.toString()}>{item}</Select.Option>
+                  )
                 })}
               </Select>
             </Form.Item>
@@ -163,8 +167,8 @@ const Component: FC<AccountProps> = () => {
         </EasyModal>
       </div>
     </>
-  );
-};
+  )
+}
 
-const Account = memo(Component);
-export default Account;
+const Account = memo(Component)
+export default Account

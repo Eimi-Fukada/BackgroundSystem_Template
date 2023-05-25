@@ -1,27 +1,33 @@
-import { get } from './request/http';
+import apis from './request'
 
 /**
  * 获取用户信息
  * @returns
  */
 export const fetchUser = async () => {
-  let authCodes: string[] = [];
-  let currentUser = { name: '', email: '', avatar: '', role: '' };
+  let authCodes: string[] = []
+  let currentUser = { name: '', email: '', avatar: '', role: '' }
   try {
-    const { data } = await get('/api/currentUser');
+    const { data } = await apis.get['/api/currentUser']({ data: null })
     if (data) {
-      const { email = '', name = '', avatar = '', auth = [], role } = data.data;
+      const {
+        email = '',
+        name = '',
+        avatar = '',
+        auth = [],
+        role,
+      } = data as any
       currentUser = {
         name,
         email,
         avatar,
         role,
-      };
-      authCodes = auth;
+      }
+      authCodes = auth
     }
   } catch (error) {}
   return {
     authCodes,
     currentUser,
-  };
-};
+  }
+}

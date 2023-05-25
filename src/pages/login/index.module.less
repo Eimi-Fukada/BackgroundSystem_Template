@@ -8,6 +8,7 @@
   overflow: hidden;
   background: linear-gradient(to right bottom, #7484f4, #7b5cb8);
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -21,6 +22,7 @@
   border-radius: 12px;
   perspective: 500px;
 }
+
 .wrapperContent {
   position: relative;
   display: flex;
@@ -35,6 +37,7 @@
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0, 0, 0.48, 1);
 }
+
 .wrapper {
   position: absolute;
   top: 10px;
@@ -42,10 +45,11 @@
   width: calc(50% - 16px - 8px);
   height: calc(100% - 20px);
   border-radius: 12px;
-  box-shadow: inset 6px 6px 4px #d9dce6, inset -3px -3px 13px #f5f9fd, inset -3px -3px 13px #f5f9fd,
-    inset 5px 5px 4px #d9dce6;
+  box-shadow: inset 6px 6px 4px #d9dce6, inset -3px -3px 13px #f5f9fd,
+    inset -3px -3px 13px #f5f9fd, inset 5px 5px 4px #d9dce6;
   transition: left 1s cubic-bezier(0.82, 0.12, 0.18, 0.88);
 }
+
 .btn {
   display: flex;
   align-items: center;
@@ -56,6 +60,7 @@
   transition: color 0.4s linear;
   animation: txtOutScale 0.6s linear;
 }
+
 .active {
   color: #000;
   transform: scale(1.1);
@@ -75,6 +80,7 @@
     transform: scale(1.1);
   }
 }
+
 @keyframes txtOutScale {
   0% {
     transform: scale(1.1);
@@ -95,6 +101,7 @@
   width: 90%;
   margin-top: 20px;
 }
+
 .input {
   margin-top: 20px;
   padding: 16px;
@@ -106,13 +113,16 @@
   box-shadow: inset 2px 2px 5px #9195a5, inset -5px -5px 10px #fff;
   transition: all 0.2s ease-in-out;
   appearance: none;
+
   &:focus {
     box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
   }
 }
+
 .input::placeholder {
   color: #ac94cc;
 }
+
 .login {
   display: flex;
   align-items: center;
@@ -129,6 +139,7 @@
   box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+
   &:active {
     box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
   }
@@ -136,14 +147,17 @@
 
 span > input {
   background-color: transparent !important;
+
   &:focus {
     background-color: transparent !important;
   }
 }
+
 input:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px transparent inset;
+  box-shadow: 0 0 0 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
 input::placeholder {
   color: #ac94cc !important;
 }

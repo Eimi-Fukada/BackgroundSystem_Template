@@ -1,19 +1,21 @@
-import { FC, useRef } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import { PostMessageProps } from './const';
-import { ViewModel } from './viewModel';
-import BreadCrumb from '@/components/BreadCrumb';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
-import { Form, Input } from 'antd';
-import EasyModal from '@/components/easyModal';
-import { RoleItem } from '../role/const';
+import type { FC } from 'react'
+import { useRef } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { PostMessageProps } from './const'
+import { useViewModel } from './viewModel'
+import BreadCrumb from '@/components/BreadCrumb'
+import type { ActionType, ProColumns } from '@ant-design/pro-components'
+import { ProTable } from '@ant-design/pro-components'
+import { Form, Input } from 'antd'
+import EasyModal from '@/components/EasyModal'
+import type { RoleItem } from '../role/const'
 
 const Component: FC<PostMessageProps> = () => {
-  const { getList, visible, setVisible, handleOk, form, value, setValue } = ViewModel();
+  const { getList, visible, setVisible, handleOk, form, value, setValue } =
+    useViewModel()
 
-  const roleRef = useRef<ActionType>();
+  const roleRef = useRef<ActionType>()
 
   const columns: ProColumns<RoleItem>[] = [
     {
@@ -34,14 +36,14 @@ const Component: FC<PostMessageProps> = () => {
         <a
           key="editable"
           onClick={() => {
-            setVisible(true);
+            setVisible(true)
           }}
         >
           发送消息
         </a>,
       ],
     },
-  ];
+  ]
 
   return (
     <>
@@ -58,7 +60,7 @@ const Component: FC<PostMessageProps> = () => {
             labelWidth: 'auto',
           }}
           request={({ current }) => getList(current || 1)}
-          onSubmit={(value) => console.log('value', value)}
+          onSubmit={(val) => console.log('value', val)}
         />
         <EasyModal
           visible={visible}
@@ -86,8 +88,8 @@ const Component: FC<PostMessageProps> = () => {
         </EasyModal>
       </div>
     </>
-  );
-};
+  )
+}
 
-const PostMessage = memo(Component);
-export default PostMessage;
+const PostMessage = memo(Component)
+export default PostMessage

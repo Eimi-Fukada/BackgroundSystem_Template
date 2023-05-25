@@ -1,21 +1,21 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import type { EditPermissionProps } from './const';
-import { ViewModel } from './viewModel';
-import BreadCrumb from '@/components/BreadCrumb';
-import { Button, Divider } from 'antd';
-import { CheckCard } from '@ant-design/pro-components';
-import routes from '../../../config/routes/index';
+import type { FC } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { EditPermissionProps } from './const'
+import { useViewModel } from './viewModel'
+import BreadCrumb from '@/components/BreadCrumb'
+import { Button, Divider } from 'antd'
+import { CheckCard } from '@ant-design/pro-components'
+import routes from '../../../config/routes/index'
 
 const Component: FC<EditPermissionProps> = () => {
-  const { setState, submit, loading } = ViewModel();
+  const { setState, submit, loading } = useViewModel()
 
   /** 剔除login,404,welcome,redirect */
-  const filterRoutes = ['/', '/welcome', '/login', '/team'];
+  const filterRoutes = ['/', '/welcome', '/login', '/team']
   const routesArray = routes.filter(
-    (i) => !!i.path && filterRoutes.findIndex((_i) => _i === i.path) === -1,
-  );
+    (i) => !!i.path && filterRoutes.findIndex((_i) => _i === i.path) === -1
+  )
 
   const RouteItem = <T,>({ data }: { data: any }) => {
     return (
@@ -29,16 +29,21 @@ const Component: FC<EditPermissionProps> = () => {
               .filter((i: any) => !!i.name && !!i.path)
               .map((item: any) => {
                 return (
-                  <CheckCard title={item.name} size="small" key={item.name} value={item.path} />
-                );
+                  <CheckCard
+                    title={item.name}
+                    size="small"
+                    key={item.name}
+                    value={item.path}
+                  />
+                )
               })}
           </div>
         ) : (
           <CheckCard title={data.name} value={data?.path} size="small" />
         )}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -54,8 +59,8 @@ const Component: FC<EditPermissionProps> = () => {
           style={{ width: '100%' }}
           multiple
           onChange={(value) => {
-            console.log('value', value);
-            setState(value);
+            console.log('value', value)
+            setState(value)
           }}
         >
           {routesArray.map((item) => {
@@ -63,13 +68,13 @@ const Component: FC<EditPermissionProps> = () => {
               <div style={{ marginBottom: '20px' }} key={item.path}>
                 <RouteItem data={item} />
               </div>
-            );
+            )
           })}
         </CheckCard.Group>
       </div>
     </>
-  );
-};
+  )
+}
 
-const EditPermission = memo(Component);
-export default EditPermission;
+const EditPermission = memo(Component)
+export default EditPermission

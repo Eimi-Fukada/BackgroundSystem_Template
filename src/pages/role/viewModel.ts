@@ -1,41 +1,41 @@
-import { get } from '@/request/http';
-import { Form } from 'antd';
-import { useState } from 'react';
-import type { RoleItem } from './const';
+import { Form } from 'antd'
+import { useState } from 'react'
+import type { RoleItem } from './const'
+import apis from '@/request'
 
-export function ViewModel() {
+export function useViewModel() {
   /** write your js */
-  const [visible, setVisible] = useState(false);
-  const [form] = Form.useForm();
+  const [visible, setVisible] = useState(false)
+  const [form] = Form.useForm()
   const [value, setValue] = useState({
     roleName: '',
     roleDesc: '',
-  });
+  })
 
-  async function getList(current: number) {
-    const res = await get('/api/rule', { current, pageSize: 10 });
-    return res.data;
+  async function getList(current: number): Promise<any> {
+    const res = await apis.get['/api/rule']({ data: { current, pageSize: 10 } })
+    return res
   }
 
   const handleConfirm = (record: RoleItem) => {
-    console.log('confirm', record);
-  };
+    console.log('confirm', record)
+  }
 
   const onValuesChange = (values: any) => {
     if (values.rolename) {
-      setValue({ ...value, roleName: values.rolename });
+      setValue({ ...value, roleName: values.rolename })
     } else {
-      setValue({ ...value, roleDesc: values.roledesc });
+      setValue({ ...value, roleDesc: values.roledesc })
     }
-  };
+  }
 
   const handleOk = () => {
     if (value.roleName.trim().length === 0) {
-      form.validateFields(['rolename']);
-      return;
+      form.validateFields(['rolename'])
+      return
     }
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   return {
     visible,
@@ -47,5 +47,5 @@ export function ViewModel() {
     setValue,
     handleOk,
     form,
-  };
+  }
 }

@@ -1,16 +1,17 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
-import styles from './index.module.less';
-import type { LoginProps } from './const';
-import { ViewModel } from './viewModel';
-import classnames from 'classnames';
-import { Input, Form } from 'antd';
-import CountDown from '@/components/CountDown';
-import SpinLoading from '@/components/SpinLoading';
+import type { FC } from 'react'
+import React, { memo } from 'react'
+import styles from './index.module.less'
+import type { LoginProps } from './const'
+import { useViewModel } from './viewModel'
+import classnames from 'classnames'
+import { Input, Form } from 'antd'
+import CountDown from '@/components/CountDown'
+import SpinLoading from '@/components/SpinLoading'
 
 const Component: FC<LoginProps> = () => {
-  const { index, setIndex, handleLogin, value, onValuesChange, loading } = ViewModel();
-  const btnGroup = ['Password', 'Phone'];
+  const { index, setIndex, handleLogin, value, onValuesChange, loading } =
+    useViewModel()
+  const btnGroup = ['Password', 'Phone']
 
   return (
     <div className={styles.page}>
@@ -19,18 +20,23 @@ const Component: FC<LoginProps> = () => {
         <div className={classnames(styles.wrapperContent)}>
           <div
             className={styles.wrapper}
-            style={index === 1 ? { left: 'calc(12px + 50%)' } : { left: '16px' }}
+            style={
+              index === 1 ? { left: 'calc(12px + 50%)' } : { left: '16px' }
+            }
           />
           {btnGroup.map((item, idx) => {
             return (
               <div
-                className={classnames(styles.btn, idx === index ? styles.active : {})}
+                className={classnames(
+                  styles.btn,
+                  idx === index ? styles.active : {}
+                )}
                 key={item}
                 onClick={() => setIndex(idx)}
               >
                 {item}
               </div>
-            );
+            )
           })}
         </div>
         <Form
@@ -70,9 +76,16 @@ const Component: FC<LoginProps> = () => {
                 />
               </Form.Item>
               <div
-                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
               >
-                <Form.Item name="code" style={{ marginBottom: 0, width: '50%' }}>
+                <Form.Item
+                  name="code"
+                  style={{ marginBottom: 0, width: '50%' }}
+                >
                   <Input
                     placeholder={'Code'}
                     className={styles.input}
@@ -98,8 +111,8 @@ const Component: FC<LoginProps> = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-const Login = memo(Component);
-export default Login;
+const Login = memo(Component)
+export default Login
