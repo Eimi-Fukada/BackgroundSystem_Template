@@ -15,7 +15,7 @@ const Settings: LayoutSettings & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'NFKings',
+  title: 'Grace',
   pwa: false,
   iconfontUrl: '',
   logo: 'https://twmw.oss-ap-southeast-1.aliyuncs.com/twmw/static/NFKingsIcon.png',
